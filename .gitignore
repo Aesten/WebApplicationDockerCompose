@@ -1,0 +1,21 @@
+# .gitignore
+WebApplication/.gradle/
+WebApplicationVue/nodes_modules
+WebApplicationVue/dist
+
+# Logs
+logs
+*.log
+
+.DS_Store
+dist
+dist-ssr
+
+
+# Editor directories and files
+.vscode/
+.idea/
+
+
+# Project exclude paths
+/WebApplication/build/

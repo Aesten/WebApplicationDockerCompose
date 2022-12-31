@@ -1,0 +1,32 @@
+version: '3.9'
+services:  
+  backend:
+    build: 
+      context: ./WebApplication
+      target:  SpringApp
+    image: webapp/backend
+    container_name: webapp-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_USER=user
+      - DB_PASSWORD=pass
+    networks:
+      - frontback
+
+  frontend:
+    build: ./WebApplicationVue
+    image: webapp/frontend
+    container_name: webapp-frontend
+    ports:
+      - "8081:8081"
+    environment:
+      - API_HOST=http://localhost:8080
+    depends_on:
+      - backend
+    networks: 
+      - frontback
+  
+networks: 
+  frontback:
+    driver: bridge
